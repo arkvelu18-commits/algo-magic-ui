@@ -1,0 +1,119 @@
+/* ஒட்டுமொத்தப் பக்கத்தின் பின்னணி மற்றும் எழுத்து அளவு */
+.broker-page-wrapper {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    background-color: #000; /* வெளிப்பகுதி கருப்பு */
+}
+
+.compact-setup-card {
+    background: #f4f4f2; /* கிளாசிக் Off-White நிறம் - கண்ணுக்கு குளிர்ச்சியாக இருக்கும் */
+    border: 1px solid #999;
+    width: 1000px; /* அகலத்தை சிறிது கூட்டியுள்ளேன் */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    height: fit-content;
+    border-radius: 4px;
+}
+
+/* மேல் பகுதி டைட்டில் */
+.card-top-bar {
+    background: #e2e2de;
+    padding: 12px 20px;
+    font-size: 16px; /* Font Size அதிகரிப்பு */
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    color: #222;
+}
+
+.content-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    padding: 25px;
+}
+
+/* செக்ஷன் பாக்ஸ்கள் */
+.section-container {
+    border: 1px solid #bdc3c7;
+    padding: 25px 20px 20px 20px;
+    position: relative;
+    background: #fafafa; /* உள்பகுதி இன்னும் மென்மையான வெள்ளை */
+}
+
+.section-title {
+    position: absolute;
+    top: -12px;
+    left: 15px;
+    background: #fafafa;
+    padding: 0 10px;
+    font-size: 14px; /* Font Size அதிகரிப்பு */
+    color: #c5a059; /* உங்கள் லோகோவின் கோல்டன் நிறம் */
+    font-weight: bold;
+}
+
+/* படிவங்கள் (Forms) */
+.form-field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px; /* இடைவெளி அதிகரிப்பு */
+}
+
+.form-field label { 
+    font-size: 14px; /* லேபிள் எழுத்து அளவு அதிகரிப்பு */
+    font-weight: 600; 
+    color: #333; 
+    width: 100px; 
+}
+
+.form-field input, .form-field select {
+    width: 220px;
+    padding: 8px; /* இன்புட் பாக்ஸ் உயரம் அதிகரிப்பு */
+    border: 1px solid #ccc;
+    font-size: 14px; /* இன்புட் எழுத்து அளவு அதிகரிப்பு */
+    border-radius: 4px;
+}
+
+/* PnL பகுதிகள் */
+.pnl-inner-row { display: flex; gap: 30px; }
+.sub-label { 
+    font-size: 13px; 
+    color: #7f8c8d; 
+    border-bottom: 1px solid #ddd; 
+    margin-bottom: 12px; 
+    font-weight: bold;
+}
+
+.form-field-pnl { display: flex; justify-content: space-between; margin-bottom: 10px; align-items: center; }
+.form-field-pnl label { font-size: 13px; width: 70px; font-weight: 500; }
+.form-field-pnl input { width: 90px; padding: 6px; border: 1px solid #ccc; font-size: 14px; text-align: center; }
+
+/* கீழே உள்ள பட்டன்கள் */
+.footer-bar {
+    background: #ecece9;
+    padding: 15px 25px;
+    border-top: 1px solid #ccc;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.apply-btn { 
+    background: #c5a059; 
+    border: 1px solid #999; 
+    padding: 10px 30px; 
+    font-weight: bold; 
+    font-size: 14px;
+    cursor: pointer; 
+    transition: 0.3s;
+}
+
+.apply-btn:hover { background: #b38b4d; }
+
+.close-btn { 
+    background: #fff; 
+    border: 1px solid #ccc; 
+    padding: 10px 30px; 
+    font-size: 14px;
+    cursor: pointer; 
+}

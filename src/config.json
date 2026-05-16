@@ -1,0 +1,28 @@
+{
+    "active_broker": "ZEBU", 
+    "client_name": "Algo_Magic_User",
+    "brokers": {
+        "ZEBU": {
+            "base_url": "https://piconnect.zebull.in",
+            "market_key": "YOUR_MARKET_KEY",
+            "market_secret": "YOUR_MARKET_SECRET",
+            "interactive_key": "YOUR_INTERACTIVE_KEY",
+            "interactive_secret": "YOUR_INTERACTIVE_SECRET",
+            "source": "WEBAPI"
+        },
+        "ANGEL_ONE": {
+            "api_key": "YOUR_ANGEL_KEY",
+            "client_id": "USER_ID",
+            "password": "PASSWORD",
+            "totp_secret": "TOTP_TOKEN"
+        },
+        "ALICE_BLUE": {
+            "user_id": "USER_ID",
+            "api_key": "YOUR_ALICE_KEY"
+        }
+    },
+    "network_settings": {
+        "redirect_url": "http://127.0.0.1:5000",
+        "security_code": "1234"
+    }
+}

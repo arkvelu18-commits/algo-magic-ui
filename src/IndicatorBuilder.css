@@ -1,0 +1,80 @@
+.algo-page-wrapper {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    background-color: #000;
+}
+
+.compact-setup-card {
+    background: #f4f4f2; /* அதே மென்மையான Off-white */
+    border: 1px solid #999;
+    width: 1000px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    height: fit-content;
+    border-radius: 4px;
+}
+
+.card-top-bar {
+    background: #e2e2de;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    color: #222;
+}
+
+.content-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    padding: 25px;
+}
+
+.section-container {
+    border: 1px solid #bdc3c7;
+    padding: 25px 20px 20px 20px;
+    position: relative;
+    background: #fafafa;
+}
+
+.section-title {
+    position: absolute;
+    top: -12px;
+    left: 15px;
+    background: #fafafa;
+    padding: 0 10px;
+    font-size: 14px;
+    color: #c5a059;
+    font-weight: bold;
+}
+
+.form-field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.form-field label { font-size: 14px; font-weight: 600; width: 120px; }
+.form-field input, .form-field select {
+    width: 200px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.sub-label { font-size: 13px; color: #7f8c8d; border-bottom: 1px solid #ddd; margin-bottom: 12px; font-weight: bold; }
+.form-field-pnl { display: flex; justify-content: space-between; margin-bottom: 10px; }
+.form-field-pnl label { font-size: 13px; width: 100px; }
+.form-field-pnl input { width: 120px; padding: 6px; border: 1px solid #ccc; font-size: 14px; }
+
+.footer-bar {
+    background: #ecece9;
+    padding: 15px 25px;
+    border-top: 1px solid #ccc;
+    display: flex;
+    gap: 15px;
+}
+
+.apply-btn { background: #c5a059; padding: 10px 30px; font-weight: bold; font-size: 14px; cursor: pointer; border: 1px solid #999; }
+.close-btn { background: #fff; border: 1px solid #ccc; padding: 10px 30px; font-size: 14px; cursor: pointer; }
