@@ -17,7 +17,8 @@ socketio = SocketIO(app, cors_allowed_origins="*", async_mode='eventlet')
 
 # தற்போதைய ஸ்கிரிப்ட்
 current_script = "^NSEI"
-LOG_FILE = 'trade_log.csv'
+# Render போன்ற சர்வர்களில் தற்காலிகமாக ஃபைல் சேமிக்க /tmp ஃபோல்டரைப் பயன்படுத்துவது நல்லது
+LOG_FILE = '/tmp/trade_log.csv' if os.environ.get('RENDER') else 'trade_log.csv'
 
 # --- 📁 DATA SAVING LOGIC ---
 def log_trade(symbol, side, price):
@@ -122,7 +123,13 @@ def get_logs():
 def start_algo():
     return jsonify({"stat": "Ok"})
 
+# --- 🚀 RENDER PORT BINDING FIX ---
 if __name__ == '__main__':
     eventlet.spawn(live_engine)
-    print("🚀 Algo Server Running with Log System! http://127.0.0.1:5000")
-    socketio.run(app, host='127.0.0.1', port=5000, debug=False)
+    
+    # Render வழங்கும் ஆன்லைன் போர்ட்டை எடுக்கிறது, லோக்கலில் இருந்தால் 5000 போர்ட்டை எடுக்கும்
+    port = int(os.environ.get("PORT", 5000))
+    
+    print(f"🚀 Algo Server Running Successfully on Port: {port}")
+    # Render சர்வருக்காக host='0.0.0.0' என்று மாற்றப்பட்டுள்ளது
+    socketio.run(app, host='0.0.0.0', port=port, debug=False)
