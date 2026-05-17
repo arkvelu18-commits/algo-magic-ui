@@ -1,5 +1,6 @@
 import eventlet
 eventlet.monkey_patch()
+
 import yfinance as yf
 import pandas as pd
 import random
@@ -83,6 +84,13 @@ def live_engine():
         except:
             eventlet.sleep(1)
 
+# ⭐ ஆன்லைன் சர்வரிலும் லைவ் எஞ்சின் இயங்குவதற்காக இந்தச் சிறிய பங்க்ஷன் சேர்க்கப்பட்டுள்ளது அண்ணா!
+@app.before_sharing_runtime if hasattr(app, 'before_sharing_runtime') else app.before_request
+def start_live_engine_safely():
+    if not hasattr(app, "engine_started"):
+        eventlet.spawn(live_engine)
+        app.engine_started = True
+
 # --- 🌐 API ROUTES ---
 
 @app.route('/api/history')
@@ -123,13 +131,9 @@ def get_logs():
 def start_algo():
     return jsonify({"stat": "Ok"})
 
-# --- 🚀 RENDER PORT BINDING FIX ---
+# --- 🚀 PORT BINDING ---
+port = int(os.environ.get("PORT", 5000))
+
 if __name__ == '__main__':
-    eventlet.spawn(live_engine)
-    
-    # Render வழங்கும் ஆன்லைன் போர்ட்டை எடுக்கிறது, லோக்கலில் இருந்தால் 5000 போர்ட்டை எடுக்கும்
-    port = int(os.environ.get("PORT", 5000))
-    
     print(f"🚀 Algo Server Running Successfully on Port: {port}")
-    # Render சர்வருக்காக host='0.0.0.0' என்று மாற்றப்பட்டுள்ளது
     socketio.run(app, host='0.0.0.0', port=port, debug=False)
