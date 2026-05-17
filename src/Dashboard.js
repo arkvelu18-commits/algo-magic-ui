@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useRef, useCallback, useContext } from 'react';
 import { createChart, CandlestickSeries } from 'lightweight-charts';
 
-// நம்முடைய மெமரி கான்டெக்ஸ்ட் இம்போர்ட் செய்கிறோம்
-import { AlgoContext } from '../AlgoContext'; // components ஃபோல்டருக்குள் இருப்பதால் ஒரு ஸ்டெப் வெளியே போகிறோம்
+// ✅ முகவரி கச்சிதமாக ஒரே புள்ளியுடன் (./) மாற்றப்பட்டுள்ளது அண்ணா!
+import { AlgoContext } from './AlgoContext'; 
+
+// 🔌 கான்பிக் ஃபைலில் இருக்கும் ஆன்லைன் ரெண்டர் லிங்க்கை இம்போர்ட் செய்கிறோம் அண்ணா
+import { API_BASE_URL } from './config';
 
 const LiveDashboard = () => { // ஃபைல் பெயருக்கு ஏற்ப மாற்றப்பட்டுள்ளது அண்ணா
   const chartContainerRef = useRef(null);
@@ -20,8 +23,8 @@ const LiveDashboard = () => { // ஃபைல் பெயருக்கு ஏ
   const [liveStats, setLiveStats] = useState({ pnl: '0.00', price: '0.00', status: 'Ready' });
   const isLoggedIn = runningIds.length > 0;
   
-  // 🌐 2026 பக்கா கிளவுட் செட்டப்: Render லைவ் சர்வர் லிங்க் நேரடியாக இணைக்கப்பட்டுள்ளது அண்ணா!
-  const BACKEND_URL = 'https://algo-magic-ui.onrender.com';
+  // 🌐 கான்பிக் ஃபைலில் இருக்கும் மையப்படுத்தப்பட்ட Render URL லிங்க் இணைக்கப்பட்டுள்ளது அண்ணா!
+  const BACKEND_URL = API_BASE_URL;
 
   useEffect(() => {
     if (isLoggedIn && liveStats.status === 'Ready') {
@@ -397,7 +400,7 @@ const LiveDashboard = () => { // ஃபைல் பெயருக்கு ஏ
                           type="checkbox" 
                           checked={isAllSelected} 
                           onChange={() => {}} 
-                          style={{marginRight: '6px'}}
+                          style={{marginRight: '6px', cursor: 'pointer'}}
                         />
                         {selectedStock}
                       </td>

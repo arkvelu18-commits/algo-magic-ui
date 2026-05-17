@@ -4,6 +4,9 @@ import io from 'socket.io-client';
 // நம்முடைய புதிய மெமரி கான்டெக்ஸ்ட் இம்போர்ட் செய்கிறோம்
 import { AlgoContext } from './AlgoContext';
 
+// 🔌 கான்பிக் ஃபைலில் இருக்கும் ஆன்லைன் ரெண்டர் லிங்க்கை எடுக்கிறோம் அண்ணா
+import { API_BASE_URL } from './config';
+
 // சரியான ஃபைல் பெயர்கள்
 import Login from './Login';
 import Dashboard from './Dashboard'; 
@@ -14,7 +17,8 @@ import AlgoBuilder from './AlgoBuilder';
 import StrategyHub from './components/StrategyHub'; 
 import PMS from './components/PMSPanel';
 
-const socket = io('http://localhost:5000', {
+// 🚀 லோக்கல்ஹோஸ்ட்டுக்குப் பதிலாக ஆன்லைன் Render URL-ஐப் பயன்படுத்தும் படி மாற்றப்பட்டுள்ளது அண்ணா!
+const socket = io(API_BASE_URL, {
   transports: ['websocket'],
   upgrade: false
 });
