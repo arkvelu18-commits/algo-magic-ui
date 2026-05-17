@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef, useCallback, useContext } from 'rea
 import { createChart, CandlestickSeries } from 'lightweight-charts';
 
 // நம்முடைய மெமரி கான்டெக்ஸ்ட் இம்போர்ட் செய்கிறோம்
-import { AlgoContext } from './AlgoContext';
+import { AlgoContext } from '../AlgoContext'; // components ஃபோல்டருக்குள் இருப்பதால் ஒரு ஸ்டெப் வெளியே போகிறோம்
 
-const Dashboard = () => {
+const LiveDashboard = () => { // ஃபைல் பெயருக்கு ஏற்ப மாற்றப்பட்டுள்ளது அண்ணா
   const chartContainerRef = useRef(null);
   const seriesRef = useRef(null);
   const chartRef = useRef(null);
@@ -20,8 +20,8 @@ const Dashboard = () => {
   const [liveStats, setLiveStats] = useState({ pnl: '0.00', price: '0.00', status: 'Ready' });
   const isLoggedIn = runningIds.length > 0;
   
-  // 🌐 பேக்-எண்ட் சர்வர் URL செட்டப் (Netlify-க்காக க்ளீன் செய்யப்பட்டது அண்ணா)
-  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://127.0.0.1:5000';
+  // 🌐 2026 பக்கா கிளவுட் செட்டப்: Render லைவ் சர்வர் லிங்க் நேரடியாக இணைக்கப்பட்டுள்ளது அண்ணா!
+  const BACKEND_URL = 'https://algo-magic-ui.onrender.com';
 
   useEffect(() => {
     if (isLoggedIn && liveStats.status === 'Ready') {
@@ -53,7 +53,7 @@ const Dashboard = () => {
     if (selectedStock.includes('BANK NIFTY')) {
       setStrikePrice('48500');
       setOrderQty(15); 
-    } else if (selectedStock.includes('NIFTY 50') || selectedStock.includes('NIFTY')) {
+    } else if (selectedStock.includes('NIFTY 50 Mum') || selectedStock.includes('NIFTY 50') || selectedStock.includes('NIFTY')) {
       setStrikePrice('22500');
       setOrderQty(25); 
     } else if (selectedStock.includes('RELIANCE')) {
@@ -591,4 +591,4 @@ const styles = {
   actionBtn: { width: '100%', padding: '12px', borderRadius: '6px', fontWeight: 'bold', cursor: 'pointer', color: '#0d1117', fontSize: '11px', marginTop: '15px', border: 'none' }
 };
 
-export default Dashboard;
+export default LiveDashboard;

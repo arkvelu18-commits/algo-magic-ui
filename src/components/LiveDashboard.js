@@ -20,8 +20,8 @@ const LiveDashboard = () => { // ஃபைல் பெயருக்கு ஏ
   const [liveStats, setLiveStats] = useState({ pnl: '0.00', price: '0.00', status: 'Ready' });
   const isLoggedIn = runningIds.length > 0;
   
-  // 🌐 பேக்-எண்ட் சர்வர் URL செட்டப் (Netlify-க்காக க்ளீன் செய்யப்பட்டது அண்ணா)
-  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://127.0.0.1:5000';
+  // 🌐 2026 பக்கா கிளவுட் செட்டப்: Render லைவ் சர்வர் லிங்க் நேரடியாக இணைக்கப்பட்டுள்ளது அண்ணா!
+  const BACKEND_URL = 'https://algo-magic-ui.onrender.com';
 
   useEffect(() => {
     if (isLoggedIn && liveStats.status === 'Ready') {
@@ -591,4 +591,4 @@ const styles = {
   actionBtn: { width: '100%', padding: '12px', borderRadius: '6px', fontWeight: 'bold', cursor: 'pointer', color: '#0d1117', fontSize: '11px', marginTop: '15px', border: 'none' }
 };
 
-export default LiveDashboard; // ஃபைல் பெயருக்கு ஏற்ப எக்ஸ்போர்ட் மாற்றப்பட்டுள்ளது அண்ணா
+export default LiveDashboard;
